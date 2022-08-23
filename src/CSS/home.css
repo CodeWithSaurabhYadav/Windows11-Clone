@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap');
+
+/* Defining variables to use */
+:root{
+    --taskbar-color: #f3f3f3;
+    --startmenu-hover: #fff;
+    --hover-color-desk: rgba(228, 225, 225,0.2);
+    --hover-color-task: rgb(255, 255, 255);
+    --weather-background: rgba(255, 255, 255, 0.89);
+    --search-border-botom: rgb(28, 28, 64);
+    --box-shadow: grey;
+    --box-blue: rgb(211, 235, 255);
+    --desktop-wallpaper: url("../../images/desktop/wallpaper.jpg");
+    --right-click: rgba(0, 0, 0, 0.1);
+    --right-click-border: #ccc;
+    --right-click-color: hsla(0,0%,98%,.9);
+    --right-click-hover: rgba(209, 220, 242);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+}
+
+/* To hide scroll */
+::-webkit-scrollbar {
+    display: none;
+}
+
+body{
+    background: var(--desktop-wallpaper)  no-repeat center center/cover;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -10;
+    position: relative;
+}
+/* #desktop-live-wallpaper{
+    z-index: -10;
+} */
+
+
+/* Right Click Function */
+#right-click-wrapper{
+    /* visibility: hidden; */
+    display: none;
+    width: 250px;
+    border-radius: 8px;
+    position: absolute;
+    box-shadow: 0 5px 35px var(--right-click);
+    background-color: var(--right-click-color);
+    -webkit-backdrop-filter: saturate(2) blur(20px);
+    backdrop-filter: saturate(2) blur(20px);
+    z-index: 10000;
+}
+#right-click-wrapper .right-click-menu{
+    padding: 10px 12px;
+}
+.right-click-content .item{
+    list-style: none;
+    width: 100%;
+    height: 35px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 0px 5px 0px 10px;
+}
+.right-click-content .item:hover{
+    background-color: var(--right-click-hover);
+}
+.right-click-content .item span{
+    margin-left: 8px;
+}
+.right-click-content .more-options{
+    position: relative;
+    justify-content: space-between;
+}
+.right-click-content .right-upper-lower-border{
+    border-top: 1px solid var(--right-click-border);
+    border-bottom: 1px solid var(--right-click-border);
+    border-radius: none;
+}
+.new-menu img{
+    height: 20px;
+}
+.view-menu,
+.sort-by-menu,
+.new-menu{
+    font-size: 12px;
+    position: absolute;
+    background-color: var(--right-click-color);
+    width: 200px;
+    right: -200px;
+    top: -35px;
+    z-index: 6;
+    padding: 10px 12px;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 4px;
+    box-shadow: 0 5px 35px var(--right-click);
+    transition: 0.2s ease-in-out;
+}
+.new-menu{
+    width: 300px;
+    right: -300px;
+}
+.more-options:hover .view-menu,
+.more-options:hover .sort-by-menu,
+.more-options:hover .new-menu{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Desktop Icons*/
+.desktop-icons{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    flex-wrap: wrap;  
+    float: left;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    margin-left: 8px;
+    z-index: -5;
+}
+.desktop-icons div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0.3rem;
+    border-radius: 4px;
+    z-index: 1;
+}
+.desktop-icons img{
+    height: 50px;
+    border-radius: 4px;
+    position: relative;
+    padding: 5px;
+}
+.desktop-icons p{
+    z-index: 2;
+    border-radius: 03px;
+    justify-content: center;
+    width: 55px;
+}
+.desktop-icons div:hover{
+    background-color: var(--hover-color-desk);
+}
+
+
+/* weather-view */
+.weather-forecast{
+    width: 35vw;
+    height: 98vh;
+    margin: 8px;
+    margin-left: -700px;
+    border-radius: 10px;
+    z-index: -1;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    align-items: center;
+    background-color: var(--weather-background);
+    box-shadow: 0 5px 35px var(--right-click);
+    transition: all 0.2s ease-out;
+}
+
+.weather-forecast *{
+    z-index: -1;
+}
+.weather-forecast #weather-top{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+#weather-time{
+    font-size: 30px;
+}
+.weather-forecast #weather-top div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+.weather-forecast #weather-top div img{
+    position: absolute;
+    right: 20px;
+    height: 45px;
+    padding: 5px;
+    border-radius: 30px;
+    background-color: rgba(228, 225, 225,0.6);
+}
+#weather-search-bar{
+    display: flex;
+    box-shadow: 1px 1px 1.5px 2px var(--box-shadow);
+    width: 70%;
+    margin: 30px 0px;
+    justify-content: center;
+    align-items: center;
+}
+#weather-search-bar *{
+    border: none;
+    outline: none;
+    background-color: var(--taskbar-color);
+}
+#weather-search-bar img{
+    /* padding: 10px; */
+    width: 30px;
+    margin: 0px 10px;
+    height: 20px;
+}
+#weather-search-bar input{
+    height: 40px;
+    width: 600px;
+}
+#weather-grid-container{
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: repeat(2,auto);
+    grid-template-rows: repeat(20, 1fr);
+    width: 70%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.wether-grid-item{
+    height: 200px;
+}
+.wether-grid-item img{
+    border-radius: 7px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.wether-grid-item:nth-child(3){
+    grid-column: 1 / span 2;
+}
+.wether-grid-item:nth-child(6){
+    grid-column: 1 / span 2;
+}
+.wether-grid-item:nth-child(9){
+    grid-column: 1 / span 2;
+}
+
+/* Startup Menu */
+#startup-menu-container{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom: -800px;
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+}
+#startup-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32vw;
+    height: 58vh;
+    padding: 40px 40px;
+    background-color: var(--box-blue);
+    box-shadow: 0 5px 35px var(--right-click);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+#startup-search{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border: 0.5px solid var(--box-shadow);
+    border-bottom: 3px solid var(--search-border-botom);
+}
+#startup-search *{
+    background-color: var(--taskbar-color);
+    border: none;
+    outline: none;
+}
+#startup-search img{
+    width: 43px;
+    padding: 13px;
+}
+#startup-search input{
+    width: 100%;
+    height: 100%;
+}
+.startup-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px 0px;
+}
+.startup-header button{
+    padding: 2px;
+}
+#pinned-apps{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    width: 100%;
+    font-size: 12px;
+}
+#pinned-apps .app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 5px;
+}
+#pinned-apps .app p{
+    margin-top: 5px;
+    width: 100%;
+}
+#pinned-apps .app img{
+    margin-bottom: 5px;
+    height: 50px;
+}
+#pinned-apps .app:hover{
+    border-radius: 6px;
+    background-color: var(--startmenu-hover);
+}
+#startup-menu-footer{
+    /* border: 3px solid red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 32vw;
+    height: 0.5vh;
+    padding: 40px 40px;
+    background-color: var(--box-blue);
+    border-top: 1px solid var(--box-shadow);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: 14px;
+}
+#startup-menu-footer div.left ,
+#startup-menu-footer div.right{
+    padding: 5px 10px;
+    align-items: center;
+    display: flex;
+    height: 40px;
+}
+#startup-menu-footer img{
+    height: 30px;
+    border-radius: 50%;
+    padding: 3px;
+}
+#start-menu-user-logo{
+    background-color: black;
+    margin: 0px 10px;
+}
+#startup-menu-footer div.left:hover ,
+#startup-menu-footer div.right:hover{
+    border-radius: 4px;
+    background-color: var(--startmenu-hover);
+}
+
+/* Taskbar */
+.taskbar{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--taskbar-color);
+}
+.taskbar img{
+    margin-top: 3px;
+    height: 23px;
+}
+.taskbar-box{
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+.taskbar .left{
+    position: absolute;
+    display: flex;
+    left: 30px;
+    font-size: 12px;
+}
+.taskbar .mid {
+    display: flex;
+    align-items: center;
+}
+.taskbar .mid div{
+    margin: 0 5px;
+    transform: all 0.2s ease;
+}
+.taskbar .right{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 30px;
+}
+.taskbar .right img{
+    height: 18px;
+}
+.taskbar .right div{
+    margin: 0 8px;
+}
+.right #task-lang,#task-datetime{
+    font-size: 15px;
+    text-align: center;
+}
+
+.taskbar .left:hover, .mid div:hover, .right div:hover{
+    transition: all 0.2s ease;
+    background-color: var(--hover-color-task);
+}

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11 clone using HTML, CSS and JavaScript</title>
+
+    <script src="https://kit.fontawesome.com/9f77c58a78.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/CSS/home.css">
+
+</head>
+<body onload="onloadAlert()" onclick="universalClick()">
+    <div class="desktop-icons" id="desktop-icons-container">
+        <div>
+            <img src="images/desktop/thispc.png" alt="This PC">
+            <p>This PC</p>
+        </div>
+        <div>
+            <img src="images/desktop/recyclebin.png" alt="Recyclebin">
+            <p>Recycle Bin</p>
+        </div>
+        <div>
+            <img src="images/desktop/chrome.png" alt="Google Chrome">
+            <p>Google Chrome</p>
+        </div>
+        <div>
+            <img src="images/desktop/epicgames.png" alt="Epic Games">
+            <p>Epic Games</p>
+        </div>
+        <div>
+            <img src="images/desktop/xbox.png" alt="XBox">
+            <p>XBox</p>
+        </div>
+        <div>
+            <img src="images/desktop/spotify.png" alt="Spotify">
+            <p>Spotify</p>
+        </div>
+        <div>
+            <img src="images/desktop/folder.png" alt="Saurabh Folder">
+            <p>Saurabh</p>
+        </div>
+        <div>
+            <img src="images/desktop/folder.png" alt="Programs Folder">
+            <p>Programs</p>
+        </div>
+        <div>
+            <img src="images/desktop/vscode.png" alt="vscode">
+            <p>VS Code</p>
+        </div>
+        <div id="github">
+            <img src="images/desktop/github.png" alt="githu | codewithsaurabhyadav">
+            <p>CodeWith
+                Saurabh...</p>
+        </div>
+    </div>
+
+    <!-- Right CLick Functions -->
+    <div id="right-click-wrapper">
+        <div class="right-click-content">
+            <ul class="right-click-menu">
+                <li class="item more-options">
+                    <div>
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <span>View</span>
+                    </div>
+                    <i class="fa-solid fa-angle-right"></i>
+                    <ul class="view-menu">
+                        <li class="item" id="desk-icons-large">
+                            <i class="fa-solid fa-tv"></i>
+                            <span>Large Icons</span>
+                        </li>
+                        <li class="item" id="desk-icons-medium">
+                            <i class="fa-solid fa-display"></i>
+                            <span>Medium Icons</span>
+                        </li>
+                        <li class="item" id="desk-icons-small">
+                            <i class="fa-solid fa-table-cells-large"></i>
+                            <span>Small Icons</span>
+                        </li>
+                        <li class="item right-upper-lower-border" id="hide-desk-icons">
+                            <span>Hide Desktop Icons</span>
+                        </li>
+                    </ul>
+                </li class="">
+                <li class="item more-options">
+                    <div>
+                        <i class="fa-solid fa-arrow-down-a-z"></i>
+                        <span>Sort by</span>
+                    </div>
+                    <i class="fa-solid fa-angle-right"></i>
+                    <ul class="sort-by-menu">
+                        <li class="item">
+                            <span>Name</span>
+                        </li>
+                        <li class="item">
+                            <span>Size</span>
+                        </li>
+                        <li class="item">
+                            <span>Item type</span>
+                        </li>
+                        <li class="item">
+                            <span>Date Modified</span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item" id="refresh-page">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span>refresh</span>
+                </li>
+                <li class="item right-upper-lower-border more-options">
+                    <div>
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <span>New</span>
+                    </div>
+                    <i class="fa-solid fa-angle-right"></i>
+                    <ul class="new-menu">
+                        <li class="item">
+                            <img src="images/desktop/folder.png" alt="New Folder">
+                            <span>New folder</span>
+                        </li>
+                        <li class="item">
+                            <img src="images/startupbar/msexel.png" alt="msexel">
+                            <span>Microsoft Exel Document</span>
+                        </li>
+                        <li class="item">
+                            <img src="images/startupbar/msword.png" alt="msword">
+                            <span>Microsoft Word Document</span>
+                        </li>
+                        <li class="item">
+                            <img src="images/startupbar/mspowerpoint.png" alt="msword">
+                            <span>Microsoft PowerPoint Presentation</span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <i class="fa-solid fa-display"></i>
+                    <span>Display Settings</span>
+                </li>
+                <li class="item">
+                    <i class="fa-solid fa-paintbrush"></i>
+                    <span>Persoanlize</span>
+                </li>
+                <li class="item right-upper-lower-border">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span>Terminal</span>
+                </li>
+                <li class="item">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <span>Show more options</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="weather-forecast" id="weather-tansition">
+        <div id="weather-top">
+            <p id="weather-time"></p>
+            <div>
+                <img src="images/taskbar/left/logo.png" alt="user">
+            </div>
+        </div>
+        <div id="weather-search-bar">
+            <img src="images/taskbar/mid/search.png" alt="search">
+            <input type="text" name="search" id="search1" placeholder="Search the web">
+        </div>
+        <div id="weather-grid-container">
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/500" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/600" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/700" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/800" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/900" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/1000" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/500" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/600" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/700" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/800" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/900" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/1000" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/500" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/600" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/700" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/800" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/900" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/1000" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/500" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/600" alt="unable to load data">
+            </div>
+            <div class="wether-grid-item">
+                <img src="https://picsum.photos/700" alt="unable to load data">
+            </div>
+        </div>
+    </div>
+
+    <div id="startup-menu-container">
+        <div id="startup-menu">
+            <div id="startup-search">
+                <img src="images/startupbar/search.png" alt="search">
+                <input type="text" name="search app" id="startup-search-text" placeholder="Type here to search">
+            </div>
+            <div class="startup-header">
+                <h4>Pinned</h4>
+                <button>All apps ></button>
+            </div>
+            <div id="pinned-apps">
+                <div class="app">
+                    <img src="images/startupbar/chrome.png" alt="Google Chrome">
+                    <p>Google Chrome</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/clock.png" alt="Clock">
+                    <p>Clock</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/desktop.png" alt="Desktop">
+                    <p>Personalization</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/epicgames.png" alt="Epic Games">
+                    <p>Epic Games</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/msoffice.png" alt="MS Office">
+                    <p>MS Office</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/msexel.png" alt="MS Exel">
+                    <p>MS Exel</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/msword.png" alt="MS Word">
+                    <p>MS Word</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/mspowerpoint.png" alt="MS Powerpoint">
+                    <p>MS Powerpoint</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/note.png" alt="Note">
+                    <p>Note</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/notepad.png" alt="Notepad">
+                    <p>Notepad</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/paint.png" alt="Paint">
+                    <p>Paint</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/Settings.png" alt="Settings">
+                    <p>Settings</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/spotify.png" alt="Spotify">
+                    <p>Spotify</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/thispc.png" alt="This PC">
+                    <p>This PC</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/recyclebin.png" alt="Recycle Bin">
+                    <p>Recycle Bin</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/whiteboard.png" alt="Whiteboard">
+                    <p>Whiteboard</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/vscode.png" alt="VS Code">
+                    <p>VS Code</p>
+                </div>
+                <div class="app">
+                    <img src="images/startupbar/xbox.png" alt="XBox">
+                    <p>XBox</p>
+                </div>
+            </div>
+            <div class="startup-header">
+                <h4>Recommended</h4>
+                <button>More ></button>
+            </div>
+            <p>No recommendation</p>
+        </div>
+        <div id="startup-menu-footer">
+            <div class="left">
+                <img src="images/startupbar/logo.png" alt="user" id="start-menu-user-logo">
+                <p>Saurabh Yadav</p>
+            </div>
+            <div class="right">
+                <img src="images/startupbar/shutdown.png" alt="shutdown">
+            </div>
+        </div>
+    </div>
+
+    <div class="taskbar">
+        <div class="left  taskbar-box" id="taskbar-left" onmouseover="showMore()">
+            <div class="taskbar-box">
+                <img src="images/taskbar/left/day.png" alt="weather">
+            </div>
+            <div class="taskbar-box">
+                <span>99°</span>
+                <p></p>
+            </div>
+        </div>
+        <div class="mid">
+            <div class="taskbar-box taskbar-mid-icons" id="home-btn">
+                <img src="images/taskbar/mid/home.png" alt="home">
+            </div>
+            <div class="taskbar-box taskbar-mid-icons">
+                <img src="images/taskbar/mid/search.png" alt="search">
+            </div>
+            <div class="taskbar-box taskbar-mid-icons">
+                <img src="images/taskbar/mid/msstore.png" alt="msstore">
+            </div>
+            <div class="taskbar-box taskbar-mid-icons">
+                <img src="images/taskbar/mid/myfiles.png" alt="files">
+            </div>
+            <div class="taskbar-box taskbar-mid-icons">
+                <img src="images/taskbar/mid/vscode.png" alt="vscode">
+            </div>
+        </div>
+        <div class="right">
+            <div class="taskbar-box">
+                <img src="images/taskbar/right/showhidden.png" alt="showhidden">
+            </div>
+            <div id="task-lang" class="taskbar-box">
+                <p>ENG</p>
+                <p>IN</p>
+            </div>
+            <div class="taskbar-box">
+                <img src="images/taskbar/right/wifi.png" alt="wifi">
+                <img src="images/taskbar/right/low-volume.png" alt="low-volume">
+                <img src="images/taskbar/right/battery.png" alt="battery">
+            </div>
+            <div id="task-datetime" class=" taskbar-box">
+                <p id="time"></p>
+                <p id="date"></p>
+            </div>
+        </div>
+    </div>
+    <div id="show-hidden-task">
+    </div>
+
+    <script src="src/JavaScript/home.js"></script>
+</body>
+</html>

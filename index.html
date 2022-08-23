@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="refresh" content="15, url=/windows11.html"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POWER ON | Windows 11 Home | HTML | CSS | JavaScript</title>
+    <link rel="stylesheet" href="src/CSS/style.css">
+
+</head>
+
+<body>
+    <video autoplay muted id="powerOnScreen">
+        <source src="videos/powerON.mp4" type="video/mp4">
+    </video>
+    <div class="date-time">
+        <p id="time"></p>
+        <p id="date"></p>
+    </div>
+    <audio id="onLoadAudio">
+        <source src="audio/onloadAudio.mp3" type="audio/mp3">
+    </audio>
+    <div class="sign-in">
+        <div class="sign-in-screen">
+            <img src="images/startupbar/logo.png" alt="U">
+            <button onclick="welcomeScreen()">Sign In</button>
+        </div>
+    </div>
+    <video muted id="welcomeScreen">
+        <source src="videos/welcome.mp4" type="video/mp4">
+    </video>
+    <script src="src/JavaScript/script.js"></script>
+</body>
+</html>

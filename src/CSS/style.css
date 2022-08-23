@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* To hide scroll */
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    background: url("images/desktop/wallpaper.jpg") no-repeat center center/cover;
+    filter: var(--body-blur, blur(0px));
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 110%;
+    height: 110%;
+    z-index: -1;
+}
+
+video,
+.sign-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+video source {
+    height: 100%;
+    width: 100%;
+}
+
+.date-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 120px;
+    color: #fff;
+}
+
+.date-time p:nth-child(1) {
+    font-size: 65px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.date-time p:nth-child(2) {
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+.sign-in {
+    position: absolute;
+    left: 0;
+    bottom: -1100px;
+    transition: all 0.2s ease;
+    z-index: -5;
+}
+
+.sign-in::before {
+    content: "";
+    background: url("images/desktop/wallpaper.jpg") no-repeat center center/cover;
+    filter: blur(30px);
+    opacity: 0.92;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 110%;
+    height: 110%;
+    z-index: -5;
+}
+
+.sign-in-screen {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 150px;
+}
+
+.sign-in-screen img {
+    border-radius: 50%;
+    height: 200px;
+    padding: 20px;
+    background-color: #000;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+.sign-in-screen button {
+    font-size: 25px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    position: relative;
+    background: transparent;
+    box-shadow: 0px 3px 17px rgba(0, 0, 0, 0.5);
+}
+
+.sign-in-screen button::before {
+    content: "";
+    position: absolute;
+    background-color: #ccc;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(10px);
+    transition: all 0.2s ease-in;
+}
+
+.sign-in-screen button:hover::before {
+    opacity: 0.5;
+    filter: blur(20px);
+}
+
+#welcomeScreen {
+    display: none;
+    z-index: 2;
+}
+
+#onLoadAudio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    visibility: hidden;
+}
